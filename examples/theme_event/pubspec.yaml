@@ -1,0 +1,27 @@
+name: theme_changed_event
+description: A FlutterBus example that changes an apps theme.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.4 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.5
+  mindful_flutter_util:
+    git: git@github.com:michaelbushe/mindful_flutter_util.git
+  mindful_flutter_themes:
+    git: git@github.com:michaelbushe/mindful_material3_themes.git
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
