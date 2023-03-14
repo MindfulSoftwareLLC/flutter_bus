@@ -1,11 +1,10 @@
 # Flutter Bus
 
-FlutterBus is a single EventBus for Flutter apps. 
+FlutterBus is a static EventBus for Flutter apps. 
 
-Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftware.com)
-and Michael Bushe, the maker of the popular [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
+<img src="https://user-images.githubusercontent.com/168178/224985990-480a1f94-d6dc-4382-acb0-da8ab11240bb.png"  width="151" height="142">
 
-![MindfulSoftwareLogo](https://user-images.githubusercontent.com/168178/224985990-480a1f94-d6dc-4382-acb0-da8ab11240bb.png)
+Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftware.com)'s Michael Bushe :blue_heart:, the maker of the widely-used [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
 
 ## Examples
 
@@ -87,4 +86,4 @@ _themeStreamSub = FlutterBus.on<ThemeChangeEvent>((event) {
 ```
 
 Kudos to [Dart Event Bus](https://github.com/marcojakob/dart-event-bus) since
-I stole the key one or two lines for FLutterBus from it.
+I stole the key one or two lines for FlutterBus from it.
