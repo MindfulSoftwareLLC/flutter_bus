@@ -1,6 +1,9 @@
 # Flutter Bus
 
-FlutterBus is a single EventBus for Flutter apps. From the maker of the popular [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
+FlutterBus is a single EventBus for Flutter apps. 
+
+Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftware.com)
+and Michael Bushe, the maker of the popular [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
 
 ## Examples
 
