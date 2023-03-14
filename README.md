@@ -4,23 +4,28 @@ FlutterBus is a static EventBus for Flutter apps.
 
 Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftware.com)'s Michael Bushe :blue_heart:, the maker of the widely-used [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
 
-<img src="https://user-images.githubusercontent.com/168178/224985990-480a1f94-d6dc-4382-acb0-da8ab11240bb.png"  width="151" height="142">
+<img alt="Mindful Software Logo" src="https://user-images.githubusercontent.com/168178/224985990-480a1f94-d6dc-4382-acb0-da8ab11240bb.png"  width="151" height="142">
 
 This is beta API, subject to change.  It's small and simple but
 feedback is particularly welcome on a few issues:
-1) Should initialData be a property of FlutterBusBuilder?
+<ol>
+<li> Should initialData be a property of FlutterBusBuilder?
 It's nice that it looks like FutureBuilder and sometimes you wish 
 you had an initial event.  However "publishing" to one widget
 goes against the pub/sub pattern.
-2) Should a SteamSubscription be returned from on()?  It may
+</li> 
+<li>Should a SteamSubscription be returned from on()?  It may
 be too leaky but pause/resume/cancel are obviously useful.
 Another smaller interface could be returned.
-3) Subjects are often useful in EventBuses.  For example, it would
+</li>
+<li> Subjects are often useful in EventBuses.  For example, it would
 be nice to publish the ThemeChangedEvent on app start, replacing
 the need for initialData in FlutterBusBuilder.  The event could
 saved as the last event of that type and new subscribers can be
 sent the previous value, that way the correct default theme could 
 be set by the event, not the widget.
+</li>
+</ol>
 
 ## Examples
 
@@ -44,26 +49,24 @@ Two examples are provided examples in the /examples directory,
 the running demos are shown here.
 1. FlutterBus counter
 
-<video width="250" height="185" controls>
-  <source src="https://user-images.githubusercontent.com/168178/224986621-cc32d1a4-231b-40aa-a95d-1ca59092e944.mov" type="video/mp4">
-</video>
-
-
 Notice how decoupled the CounterText is from the rest of the app.
 It only has three imports:
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bus/flutter_bus.dart';
-import 'counter_increment_event.dart';
+<br>import 'package:flutter_bus/flutter_bus.dart';
+<br>import 'counter_increment_event.dart';
 
-It knows the event it's interested in.  
-It knows the FlutterBus.
-It knows how to draw itseld in Material.
-It doesn't know much and that's a great acheivement for a widget.
+<ul>
+<li>It knows the event it's interested in.  </li>
+<li>It knows the FlutterBus.</li>
+<li>It knows how to draw itseld in Material.</li>
+<li>It doesn't know much and that's a great acheivement for a widget.</li>
+</ul>
 
-It doesn't need anything object provided to it.
-It doesn't need a Locator.
-The widget can be moved around without having to worry about 
-which parents it has.
+It doesn't need a Locator. It doesn't need any object provided 
+to it by Provider or an InheritedWidget.  It's independent of 
+the tree. The widget can be moved around without having to worry 
+about which parents it has.
 
 2. FlutterBus theme switcher
 
@@ -99,11 +102,6 @@ an event of the interested type.
   }
 
 ```
-
-<video width="250" height="185" controls>
-  <source src="https://user-images.githubusercontent.com/168178/224986921-ea6e1c4e-fa59-4312-9ee1-3de2835a59d2.mov" type="video/mp4">
-</video>
-
 
 ## Why FlutterBus?
 
