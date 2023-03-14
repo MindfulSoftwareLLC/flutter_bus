@@ -1,16 +1,15 @@
-# theme_changed_event
+# FlutterBus ThemedChangedEvent Demo
 
-A new Flutter project.
+This app demonstrated the use of FlutterBus and the FlutterBusBuilder
+to change the theme of an app.  Note that the Text and the Main App 
+are decoupled from each other and from an AppData or similar state
+that's usually used in these cases, which tie the widget to the 
+app.
 
-## Getting Started
+The default theme is the Material default. When the FloatingActionButton 
+is pressed, it cycles through three predefined themes and publishes 
+a ThemeChangedEvent on the FlutterBus.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+MyApp's FlutterBusBuilder subscribes to the ThemeChangedEvent and 
+it's builder builds a new Material app with the new theme.
+.

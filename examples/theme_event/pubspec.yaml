@@ -13,9 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.5
   flutter_bus:
-    git: git@github.com:michaelbushe/flutter_bus.git
-  mindful_flutter_util:
-    git: git@github.com:michaelbushe/mindful_flutter_util.git
+    path: ../../
   mindful_flutter_themes:
     git: git@github.com:michaelbushe/mindful_material3_themes.git
 

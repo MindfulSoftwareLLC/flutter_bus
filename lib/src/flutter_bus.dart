@@ -32,6 +32,9 @@ class FlutterBus {
   /// pausing listener is affected. A paused listener will buffer events
   /// internally until unpaused or canceled. So it's usually better to just
   /// cancel and later subscribe again (avoids memory leak).
+  ///
+  /// API note: Beta api, perhaps giving back the full StreamSubscription
+  /// is too open?  Leaves too much to support?  Nah, Stream is native and good?
   static StreamSubscription<T> on<T>(void Function(T event) on) {
     final Stream<T> stream;
     if (T == dynamic) {

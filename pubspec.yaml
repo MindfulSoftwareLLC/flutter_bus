@@ -1,7 +1,6 @@
 name: flutter_bus
-description: "flutter_package for An FlutterBus for Flutter apps"
-version: 0.3.0+1
-publish_to: none
+description: "FlutterBus is an EventBus for Flutter apps"
+version: 0.5.0+1
 
 environment:
   sdk: ">=2.19.0 <3.0.0"

@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bus/flutter_bus.dart';
-import 'package:mindful_flutter_themes/mindful_flutter_themes.dart';
-import 'package:mindful_flutter_util/mindful_flutter_util.dart';
+import 'package:theme_changed_event/current_theme_name.dart';
+
+import 'theme_changed_event.dart';
+import 'themes.dart';
+
+ThemeChangedEvent nextThemeChangedEvent(int initialThemeIndex) {
+  return ThemeChangedEvent(
+      themeSeedColorNames[initialThemeIndex],
+      ThemeData.from(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: themeSeedColors[initialThemeIndex])),
+      ThemeData.from(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: themeSeedColors[initialThemeIndex],
+              brightness: Brightness.dark)));
+}
 
 void main() {
   runApp(const MyApp());
@@ -12,20 +26,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultTheme = MindfulFlutterThemes.themes[0];
     return FlutterBusBuilder<ThemeChangedEvent>(
-      initialData: ThemeChangedEvent(
-          defaultTheme.lightThemeDataFor(), defaultTheme.darkThemeDataFor()),
       builder: (context, themeEvent) {
-        return ThemedApp(
-          title: 'Theme Changed Event Demo',
-          //Events are never null if initialData is set
-          //FlutterBus does not publish null and the non-builder
-          //API does not allow nulls. The only null is for initialData.
-          lightTheme: themeEvent!.lightTheme,
-          darkTheme: themeEvent.darkTheme,
-          useDynamicColor: true,
-          child: const MyHomePage(title: 'Flutter Demo Home Page'),
+        //Since no initialData is supplied,
+        // the event will be null for the first build() only
+        ThemeData lightTheme;
+        ThemeData darkTheme;
+        if (themeEvent == null) {
+          lightTheme = ThemeData.light();
+          darkTheme = ThemeData.dark();
+        } else {
+          lightTheme = themeEvent.lightTheme;
+          darkTheme = themeEvent.darkTheme;
+        }
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'FlutterBus ThemeChangedEvent Demo',
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          home: const MyHomePage(title: 'FlutterBus ThemeChangedEvent Demo'),
         );
       },
     );
@@ -41,38 +60,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  int _themeIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: const Center(
+        child: CurrentThemeText(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () {
+          if (_themeIndex == themeSeedColors.length - 1) {
+            _themeIndex = 0;
+          } else {
+            _themeIndex++;
+          }
+          FlutterBus.publish(nextThemeChangedEvent(_themeIndex));
+        },
+        tooltip: 'Change Themes',
+        child: const Icon(Icons.color_lens_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
