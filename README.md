@@ -44,8 +44,10 @@ Two examples are provided examples in the /examples directory,
 the running demos are shown here.
 1. FlutterBus counter
 
+<video width="250" height="185" controls>
+  <source src="https://user-images.githubusercontent.com/168178/224986621-cc32d1a4-231b-40aa-a95d-1ca59092e944.mov" type="video/mp4">
+</video>
 
-https://user-images.githubusercontent.com/168178/224986621-cc32d1a4-231b-40aa-a95d-1ca59092e944.mov
 
 Notice how decoupled the CounterText is from the rest of the app.
 It only has three imports:
@@ -98,8 +100,9 @@ an event of the interested type.
 
 ```
 
-https://user-images.githubusercontent.com/168178/224986921-ea6e1c4e-fa59-4312-9ee1-3de2835a59d2.mov
-
+<video width="250" height="185" controls>
+  <source src="https://user-images.githubusercontent.com/168178/224986921-ea6e1c4e-fa59-4312-9ee1-3de2835a59d2.mov" type="video/mp4">
+</video>
 
 
 ## Why FlutterBus?
