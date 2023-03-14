@@ -1,6 +1,6 @@
 name: flutter_bus
 description: "flutter_package for An FlutterBus for Flutter apps"
-version: 0.2.0+1
+version: 0.3.0+1
 publish_to: none
 
 environment:
