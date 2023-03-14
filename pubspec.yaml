@@ -1,10 +1,10 @@
 name: flutter_bus
 description: "FlutterBus is an EventBus for Flutter apps"
 version: 0.5.0+1
-
+repository: https://github.com/MindfulSoftwareLLC/flutter_bus
 environment:
   sdk: ">=2.19.0 <3.0.0"
-  flutter: 3.7.0
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
