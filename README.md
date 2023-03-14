@@ -5,6 +5,8 @@ FlutterBus is a single EventBus for Flutter apps.
 Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftware.com)
 and Michael Bushe, the maker of the popular [Swing EventBus](https://repo1.maven.org/maven2/org/bushe/eventbus/1.4/).
 
+![MindfulSoftwareLogo](https://user-images.githubusercontent.com/168178/224985990-480a1f94-d6dc-4382-acb0-da8ab11240bb.png)
+
 ## Examples
 
 Somewhere deep in a service...
@@ -26,7 +28,15 @@ Also see the two provided examples in the /examples directory.
 1. FlutterBus counter
 
 
+https://user-images.githubusercontent.com/168178/224986621-cc32d1a4-231b-40aa-a95d-1ca59092e944.mov
+
+
+
 2. FlutterBus theme switcher
+
+
+https://user-images.githubusercontent.com/168178/224986921-ea6e1c4e-fa59-4312-9ee1-3de2835a59d2.mov
+
 
 
 ## Why FlutterBus?
