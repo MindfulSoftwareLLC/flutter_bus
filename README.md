@@ -21,7 +21,10 @@ FlutterBusBuilder<TickerUpdateEvent>(
 
 Also see the two provided examples in the /examples directory.
 1. FlutterBus counter
+
+
 2. FlutterBus theme switcher
+
 
 ## Why FlutterBus?
 
@@ -37,9 +40,19 @@ not quite so simple.
 Apply the FlutterBus pattern judiciously. It's not for everything 
 (at least not without considerable thought and design).
 
+FlutterBus is best used to encapsulate UI actions into an event API.
+ThemeChangedEvent and CounterChangedEvent and are good examples.
+ThemeChangedEvent is a widget-to-widget event, it encapsulates an UI API.
+CounterChangedEvent is a "business logic" event - for the Counter app the
+business is changing the counter.
+
+There is just one stream for all events types, so it's quite efficient.
+
 Consider architecting two streams for Events with two EventBuses.
-1) Use FlutterBus for events going to the UI.
-2) Use [EventBus](https://pub.dev/packages/event_bus) for events going the UI's service layer
+1) Use FlutterBus for events going from Widget to Widget or UI Service to Widget.
+2) Use [EventBus](https://pub.dev/packages/event_bus) or 
+   [Dart Event Bus](https://github.com/marcojakob/dart-event-bus)
+   for events going from UI service layer
    to the service layer from user interaction or network responses which .
    in turn uses the FlutterBus to announce changes.
 
@@ -49,3 +62,16 @@ It doesn't make sense to have two FlutterBus'es when there is on one UI
 running in a process at once so FlutterBus is easier than provideing
 the bus in a widget tree.
 
+FlutterBus is terse and more fit to the purpose of Flutter apps:
+Compare:
+```
+EventBus eventBus = (Provider provides it, GetIt gets it)
+_themeStreamSub = eventBus.on<ThemeChangeEvent>().listen((event) {
+```
+With:
+```
+_themeStreamSub = FlutterBus.on<ThemeChangeEvent>((event) {
+```
+
+Kudos to [Dart Event Bus](https://github.com/marcojakob/dart-event-bus) since
+I stole the key one or two lines for FLutterBus from it.

@@ -1,6 +1,7 @@
-import 'package:counter/counter_increment_event_button.dart';
-import 'package:counter/counter_text.dart';
 import 'package:flutter/material.dart';
+
+import 'counter_increment_event_button.dart';
+import 'counter_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'FlutterBus Counter Demo'),
     );
   }
 }

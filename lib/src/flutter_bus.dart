@@ -9,6 +9,10 @@ typedef FlutterBusFunction<T> = void Function(T);
 /// FlutterBus.fire(Foo());
 ///
 class FlutterBus {
+  // Only static access, that's what makes it a FlutterBus and not a general
+  // purpose eventbus
+  FlutterBus._();
+
   // ignore: strict_raw_type
   static final StreamController _streamController =
       StreamController.broadcast();

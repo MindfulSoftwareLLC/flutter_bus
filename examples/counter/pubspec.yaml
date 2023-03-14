@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mindful_flutter_util:
+  flutter_bus:
     path: ../../
   mindful_flutter_themes:
     git: git@github.com:michaelbushe/mindful_material3_themes.git

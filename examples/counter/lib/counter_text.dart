@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:counter/counter_increment_event.dart';
 import 'package:flutter/material.dart';
-import 'package:mindful_flutter_util/flutter_bus.dart';
+import 'package:flutter_bus/flutter_bus.dart';
+
+import 'counter_increment_event.dart';
 
 class CounterText extends StatefulWidget {
   const CounterText({
