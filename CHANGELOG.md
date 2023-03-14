@@ -1,3 +1,7 @@
+# 0.5.0+4
+
+- Doc: html formatting.
+
 # 0.5.0+3
 
 - Doc: spelling and grammar.
