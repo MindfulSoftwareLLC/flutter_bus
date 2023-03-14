@@ -47,7 +47,10 @@ FlutterBusBuilder<TickerUpdateEvent>(
 
 Two examples are provided examples in the /examples directory, 
 the running demos are shown here.
+
 1. FlutterBus counter
+
+![FlutterBusCounterDemo_AdobeExpress](https://user-images.githubusercontent.com/168178/225005400-eb992e28-d588-42c9-9289-551a418a2ef5.gif)
 
 Notice how decoupled the CounterText is from the rest of the app.
 It only has three imports:
@@ -69,6 +72,8 @@ the tree. The widget can be moved around without having to worry
 about which parents it has.
 
 2. FlutterBus theme switcher
+
+![FlutterBusThemeDemo_AdobeExpress](https://user-images.githubusercontent.com/168178/225005443-d6d0b22c-8ac4-4e9b-b20e-7ea0d6197106.gif)
 
 The second demo shows the usage of the FlutterBusBuilder.
 FlutterBusBuilder builds a widget on each new publication of
