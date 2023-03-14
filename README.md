@@ -9,18 +9,18 @@ Brought you with :green_heart: love by [Mindful Software](https://mindfulsoftwar
 This is beta API, subject to change.  It's small and simple but
 feedback is particularly welcome on a few issues:
 <ol>
-<li> Should initialData be a property of FlutterBusBuilder?
-It's nice that it looks like FutureBuilder and sometimes you wish 
-you had an initial event.  However "publishing" to one widget
+<li> Should `initialData` be a property of `FlutterBusBuilder`?
+It's nice that it looks like `FutureBuilder` and sometimes you wish 
+you had an initial event.  However, "publishing" to one widget
 goes against the pub/sub pattern.
 </li> 
-<li>Should a SteamSubscription be returned from on()?  It may
+<li>Should a `SteamSubscription` be returned from `on()`?  It may
 be too leaky but pause/resume/cancel are obviously useful.
 Another smaller interface could be returned.
 </li>
-<li> Subjects are often useful in EventBuses.  For example, it would
-be nice to publish the ThemeChangedEvent on app start, replacing
-the need for initialData in FlutterBusBuilder.  The event could
+<li> `Subject`'s are often useful in EventBuses.  For example, it would
+be nice to publish the `ThemeChangedEvent` on app start, replacing
+the need for initialData in `FlutterBusBuilder`.  The event could
 saved as the last event of that type and new subscribers can be
 sent the previous value, that way the correct default theme could 
 be set by the event, not the widget.
@@ -62,10 +62,9 @@ import 'package:flutter/material.dart';
 <ul>
 <li>It knows the event it's interested in.  </li>
 <li>It knows the FlutterBus.</li>
-<li>It knows how to draw itseld in Material.</li>
-<li>It doesn't know much and that's a great acheivement for a widget.</li>
+<li>It knows how to draw itself in Material.</li>
 </ul>
-
+It doesn't know much and that's a great acheivement for a widget.
 It doesn't need a Locator. It doesn't need any object provided 
 to it by Provider or an InheritedWidget.  It's independent of 
 the tree. The widget can be moved around without having to worry 
@@ -122,27 +121,26 @@ not quite so simple.
 Apply the FlutterBus pattern judiciously. It's not for everything 
 (at least not without considerable thought and design).
 
-FlutterBus is best used to encapsulate UI actions into an event API.
-ThemeChangedEvent and CounterChangedEvent and are good examples.
-ThemeChangedEvent is a widget-to-widget event, it encapsulates an UI API.
-CounterChangedEvent is a "business logic" event - for the Counter app the
+`FlutterBus` is best used to encapsulate UI actions into an event API.
+`ThemeChangedEvent` and `CounterChangedEvent` and are good examples.
+`ThemeChangedEvent` is a widget-to-widget event, it encapsulates a UI API.
+`CounterChangedEvent` is a "business logic" event - for the Counter app the
 business is changing the counter.
 
 There is just one stream for all events types, so it's quite efficient.
 
 Consider architecting two streams for Events with two EventBuses.
-1) Use FlutterBus for events going from Widget to Widget or UI Service to Widget.
+1) Use `FlutterBus` for events going from Widget to Widget or UI Service to Widget.
 2) Use [EventBus](https://pub.dev/packages/event_bus) or 
    [Dart Event Bus](https://github.com/marcojakob/dart-event-bus)
    for events going from UI service layer
    to the service layer from user interaction or network responses which .
    in turn uses the FlutterBus to announce changes.
 
-These two buses are near exactly the same, the difference is merely that
-FlutterBus is a single static bus accessible anywhere in a Flutter app.
-It doesn't make sense to have two FlutterBus'es when there is on one UI
-running in a process at once so FlutterBus is easier than provideing
-the bus in a widget tree.
+FlutterBus` and Dart Event Bus are near exactly the same, the difference is merely that
+FlutterBus is a single static bus accessible anywhere in a Flutter app. You can't
+have two `FlutterBus`'es. Itdoesn't make sense - there is only one UI
+running in one process.
 
 FlutterBus is terse and more fit to the purpose of Flutter apps:
 Compare:
